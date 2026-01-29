@@ -35,11 +35,11 @@ python3 -m venv venv
 source venv/bin/activate`
 
 2. Install dependencies
-bash
+```bash
 pip install -r requirements.txt
 
 3. Run the application
-
+```bash
 python view.py
 
 Open: http://localhost:5000
@@ -47,11 +47,11 @@ Open: http://localhost:5000
 ##Docker Usage
 
 1. Build the image
-
+```bash
 docker build -t rabbi-quotes-app .
 
 2. Run the container (foreground)
-
+```bash
 docker run -p 5000:5000 rabbi-quotes-app
 
 or Background (detached mode)
@@ -59,7 +59,7 @@ or Background (detached mode)
 docker run -d -p 5000:5000 --name rabbi-quotes-container rabbi-quotes-app
 
 3. Run with data persistence 
-
+```bash
 docker run -d \
   -p 5000:5000 \
   -v $(pwd)/data:/app/data \
@@ -69,6 +69,6 @@ docker run -d \
 and Access: http://localhost:5000
 
 4. Stop / Remove 
-
+```bash
 docker stop rabbi-quotes-container
 docker rm rabbi-quotes-container   # if you want to remove it
