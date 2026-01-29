@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rabbi Quotes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 40px 20px; 
+            background: #f9f9f9; 
+        }
+        h1 {
+            color: #333;
+            margin: 0 0 25px 0;
+            font-size: 2.2em;
+        }
+        .rebbe-image {
+            display: block;
+            margin: 0 auto 30px auto;
+            max-width: 500px;          /* agrandi (plus large et plus haut en proportion) */
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border: 2px solid #e0e0e0;
+        }
+        .quote-container {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px 30px;        /* padding réduit */
+            margin: 15px auto;         /* marges réduites */
+            max-width: 720px;          /* boîte plus étroite */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .quote-en {
+            font-size: 22px;
+            font-style: italic;
+            margin: 0 0 12px 0;
+            direction: ltr;
+        }
+        .quote-he {
+            font-size: 26px;
+            font-family: 'Noto Sans Hebrew', sans-serif;
+            margin: 8px 0 0 0;
+            direction: rtl;
+        }
+        .source {
+            font-size: 15px;
+            color: #555;
+            margin: 15px 0 0 0;
+        }
+        button {
+            padding: 12px 32px;
+            font-size: 18px;
+            cursor: pointer;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .intro {
+            font-size: 18px;
+            color: #555;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quotes for Good Days from Rabbi Menachem Mendel Schneerson</h1>
+    
+    <img 
+        src="https://w2.chabad.org/media/images/653/NxLb6530403.jpg?_i=_n1B5847E5B453879D2F5118EA397B1DE6" 
+        alt="The Lubavitcher Rebbe" 
+        class="rebbe-image"
+    >
+    
+    {% if quote %}
+    <div class="quote-container">
+        <div class="quote-en">
+            "{{ quote.quote_en }}"
+        </div>
+        {% if quote.quote_he %}
+        <div class="quote-he">
+            {{ quote.quote_he }}
+        </div>
+        {% endif %}
+        <p class="source">— {{ quote.source }}</p>
+    </div>
+    {% else %}
+    <p class="intro">Click below for a new quote!</p>
+    {% endif %}
+    
+    <form method="GET">
+        <button type="submit">New Quote</button>
+    </form>
+</body>
+</html>
